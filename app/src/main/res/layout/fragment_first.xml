@@ -63,6 +63,26 @@
             app:layout_constraintHorizontal_bias="0.736"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="108dp"
+            android:text="@string/char_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.253"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="108dp"
+            android:text="@string/char_6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.787"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageButton
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
@@ -94,5 +114,21 @@
             android:src="@drawable/Olaf"
             tools:layout_editor_absoluteX="203dp"
             tools:layout_editor_absoluteY="233dp" />
+
+        <ImageButton
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/Quinn"
+            tools:layout_editor_absoluteX="43dp"
+            tools:layout_editor_absoluteY="431dp" />
+
+        <ImageButton
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/Ziggs"
+            tools:layout_editor_absoluteX="219dp"
+            tools:layout_editor_absoluteY="434dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
