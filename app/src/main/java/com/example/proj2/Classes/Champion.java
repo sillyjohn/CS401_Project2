@@ -5,7 +5,7 @@ public class Champion {
     int id;
     public String name;
     //Stats
-    int level;
+    int level = 0;
     double baseDamage;
     double damagePerLevel;
     double ap;
@@ -30,7 +30,7 @@ public class Champion {
 
     //Default constructor
     public Champion() {
-        this.name = "";
+        this.name = "placeHolder";
         this.level =0;
         this.baseDamage = 0;
         this.damagePerLevel = 0;
