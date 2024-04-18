@@ -74,7 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.224"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/QuinnButton5" />
 
         <TextView
             android:id="@+id/textView3"
@@ -85,10 +85,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.758"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintTop_toBottomOf="@+id/ZiggsButton6" />
 
         <ImageButton
-            android:id="@+id/imageView"
+            android:id="@+id/AnnieButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/annie"
@@ -100,7 +100,7 @@
             app:layout_constraintVertical_bias="0.033" />
 
         <ImageButton
-            android:id="@+id/imageView2"
+            android:id="@+id/GarenButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/garen"
@@ -112,7 +112,7 @@
             app:layout_constraintVertical_bias="0.033" />
 
         <ImageButton
-            android:id="@+id/imageView3"
+            android:id="@+id/MasterYiButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/masteryi"
@@ -124,7 +124,7 @@
             app:layout_constraintVertical_bias="0.383" />
 
         <ImageButton
-            android:id="@+id/imageView4"
+            android:id="@+id/OlafButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/olaf"
@@ -136,7 +136,7 @@
             app:layout_constraintVertical_bias="0.382" />
 
         <ImageButton
-            android:id="@+id/imageView5"
+            android:id="@+id/QuinnButton5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/quinn"
@@ -148,7 +148,7 @@
             app:layout_constraintVertical_bias="0.787" />
 
         <ImageButton
-            android:id="@+id/imageView6"
+            android:id="@+id/ZiggsButton6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ziggs"
@@ -158,5 +158,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.787" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

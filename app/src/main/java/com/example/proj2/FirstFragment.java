@@ -31,7 +31,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.AnnieButton1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
@@ -45,7 +45,7 @@ public class FirstFragment extends Fragment {
 
             }
         });
-        view.findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.GarenButton2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
@@ -53,7 +53,7 @@ public class FirstFragment extends Fragment {
                 myToast.show();
             }
         });
-        view.findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.MasterYiButton3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
@@ -61,7 +61,7 @@ public class FirstFragment extends Fragment {
                 myToast.show();
             }
         });
-        view.findViewById(R.id.imageView4).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.OlafButton4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
@@ -69,7 +69,7 @@ public class FirstFragment extends Fragment {
                 myToast.show();
             }
         });
-        view.findViewById(R.id.imageView5).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.QuinnButton5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
@@ -77,7 +77,7 @@ public class FirstFragment extends Fragment {
                 myToast.show();
             }
         });
-        view.findViewById(R.id.imageView6).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.ZiggsButton6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Champion champ = new Champion();
