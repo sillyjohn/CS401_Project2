@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.proj2.Classes.Champion;
 import com.example.proj2.databinding.FragmentFirstBinding;
@@ -36,6 +37,12 @@ public class FirstFragment extends Fragment {
                 Champion champ = new Champion();
                 Toast myToast = Toast.makeText(getActivity(), champ.name, Toast.LENGTH_SHORT);
                 myToast.show();
+                Bundle result = new Bundle();
+                result.putString("Key","Annie");
+                getParentFragmentManager().setFragmentResult("requestKey", result);
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+
             }
         });
         view.findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener() {
