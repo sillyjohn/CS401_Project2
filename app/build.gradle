@@ -41,6 +41,7 @@ dependencies {
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
     testImplementation libs.junit
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
     //HTTP Request
@@ -51,6 +52,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.11.1")
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+    testImplementation 'junit:junit:4.13.2'
 
 
 }

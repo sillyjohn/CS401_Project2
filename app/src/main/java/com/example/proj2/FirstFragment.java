@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.proj2.Classes.Champion;
+import com.example.proj2.Classes.HTTP_Request;
 import com.example.proj2.databinding.FragmentFirstBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -64,6 +65,9 @@ public class FirstFragment extends Fragment {
                                 Log.w(TAG, "Error adding document", e);
                             }
                         });
+                //HTTP Request testing
+//                HTTP_Request.requestURL();
+
                 Champion champ = new Champion();
                 Toast myToast = Toast.makeText(getActivity(), champ.name, Toast.LENGTH_SHORT);
                 myToast.show();

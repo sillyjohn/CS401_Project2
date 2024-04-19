@@ -10,7 +10,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.proj2.databinding.FragmentSecondBinding;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 public class SecondFragment extends Fragment {
 
@@ -32,9 +41,35 @@ public class SecondFragment extends Fragment {
                 System.out.print(result);
             }
         });
+        //getData();
         return binding.getRoot();
 
     }
+//    private void getData(){
+//        String url = "https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/champion.json";
+//
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+//                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+//
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        //textView.setText("Response: " + response.toString());
+//                        System.out.print("Response received");
+//                    }
+//                }, new Response.ErrorListener() {
+//
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        // TODO: Handle error
+//
+//                    }
+//                });
+//
+//
+//
+//
+//
+//    }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
