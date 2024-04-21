@@ -60,7 +60,7 @@ public class SecondFragment extends Fragment {
         //Change ChampionName TV
         TextView championNameDisplay = getView().findViewById(R.id.champName);
         championNameDisplay.setText(ChampionName);
-        createChampion();
+        //createChampion();
         //Return button
         binding.buttonSecond.setOnClickListener(v ->
                 NavHostFragment.findNavController(SecondFragment.this)
