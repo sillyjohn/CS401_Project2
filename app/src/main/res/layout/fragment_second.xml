@@ -16,26 +16,27 @@
             android:id="@+id/button_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="552dp"
+            android:layout_marginTop="648dp"
             android:text="@string/previous"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <ImageButton
-            android:id="@+id/AnnieButton1"
+            android:id="@+id/ChampIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/annie"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.068"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintVertical_bias="0.051" />
 
         <TextView
-            android:id="@+id/textview0"
+            android:id="@+id/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Simulation Mode"
@@ -47,45 +48,72 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/textview_second"
+            android:id="@+id/Ability3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="Mounting Dread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ability2" />
+
+        <TextView
+            android:id="@+id/Abilities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-black"
             android:text="Abilities:"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="198dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ChampIcon"
+            app:layout_constraintVertical_bias="0.006" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/Ability1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
             android:text="Dance Of Arrow"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="244dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Abilities" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/Ability2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
             android:text="Wolf's Frenzy"
-            tools:layout_editor_absoluteX="48dp"
-            tools:layout_editor_absoluteY="279dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ability1" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/Ability4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mounting Dread"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="314dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
             android:text="Lamb's Respite"
-            tools:layout_editor_absoluteX="39dp"
-            tools:layout_editor_absoluteY="356dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Ability3" />
+
+        <TextView
+            android:id="@+id/champName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:text="@string/ChampionName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.438"
+            app:layout_constraintStart_toEndOf="@+id/ChampIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.073" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

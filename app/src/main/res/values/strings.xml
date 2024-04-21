@@ -28,4 +28,13 @@
     <string name="char_6">
         Ziggs
     </string>
+    <string name="ChampionName">
+        PlaceHolder
+    </string>
+    <string name="ChampionInfo">
+        PlaceHolder
+    </string>
+    <string name="ChampionDamage">
+        PlaceHolder
+    </string>
 </resources>

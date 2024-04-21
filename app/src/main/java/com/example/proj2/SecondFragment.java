@@ -1,16 +1,24 @@
 package com.example.proj2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.proj2.Classes.Champion;
 import com.example.proj2.databinding.FragmentSecondBinding;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -24,6 +32,7 @@ import org.json.JSONObject;
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
+    private String ChampionName;
 
     @Override
     public View onCreateView(
@@ -32,48 +41,27 @@ public class SecondFragment extends Fragment {
     ) {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
-        getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                // We use a String here, but any type that can be put in a Bundle is supported.
-                String result = bundle.getString("Key");
-                // Do something with the result.
-                System.out.print(result);
-            }
-        });
-        //getData();
+        //Get Argument From Frag 1
+        Bundle result = getArguments();
+        if(result != null){
+            this.ChampionName = result.getString("Name");
+            Log.d("Succeed",ChampionName);
+        }else{
+            Log.d("Failed","NULL");
+        }
+
         return binding.getRoot();
 
     }
-//    private void getData(){
-//        String url = "https://ddragon.leagueoflegends.com/cdn/14.6.1/data/en_US/champion.json";
-//
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-//                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-//
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        //textView.setText("Response: " + response.toString());
-//                        System.out.print("Response received");
-//                    }
-//                }, new Response.ErrorListener() {
-//
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        // TODO: Handle error
-//
-//                    }
-//                });
-//
-//
-//
-//
-//
-//    }
+
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        //Change ChampionName TV
+        TextView championNameDisplay = getView().findViewById(R.id.champName);
+        championNameDisplay.setText(ChampionName);
+        createChampion();
+        //Return button
         binding.buttonSecond.setOnClickListener(v ->
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment)
@@ -81,7 +69,6 @@ public class SecondFragment extends Fragment {
 
 
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

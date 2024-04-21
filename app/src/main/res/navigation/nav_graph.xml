@@ -13,7 +13,12 @@
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/SecondFragment"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="Name"
+            app:argType="string"
+            android:defaultValue="PlaceHolder" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -26,4 +31,7 @@
             app:destination="@id/FirstFragment"
             app:popUpTo="@id/SecondFragment" />
     </fragment>
+    <argument
+        android:name="championName"
+        app:argType="string" />
 </navigation>
