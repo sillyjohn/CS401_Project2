@@ -42,6 +42,8 @@ dependencies {
     implementation libs.constraintlayout
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+    implementation libs.activity
+    implementation libs.firebase.auth
     testImplementation libs.junit
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation libs.ext.junit
