@@ -5,6 +5,22 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="appconfig">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\STSC\.android\avd\Pixel_2_API_29.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-22T02:52:38.757407800Z" />
+        </State>
+      </entry>
     </value>
   </component>
 </project>
