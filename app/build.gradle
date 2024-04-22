@@ -46,15 +46,18 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    //HTTP Request
+    //Volley
     implementation 'com.android.volley:volley:1.2.1'
-
+    //FireStore
     implementation platform('com.google.firebase:firebase-bom:32.8.1')
     implementation 'com.google.firebase:firebase-analytics'
     implementation("com.google.firebase:firebase-firestore:24.11.1")
+    //Jackson
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.17.0'
 
+    //Junit Test
     testImplementation 'junit:junit:4.13.2'
 
 
