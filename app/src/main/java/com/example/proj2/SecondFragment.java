@@ -60,7 +60,7 @@ public class SecondFragment extends Fragment {
         }
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
             if (champion != null) {
-                TextView championNameDisplay = binding.champName;
+                TextView championNameDisplay = binding.championName;
                 championNameDisplay.setText(champion.getName());
                 // Update other views based on champion data
             }else{
@@ -78,7 +78,7 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(v ->
+        binding.clothingCard.setOnClickListener(v ->
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment)
         );
