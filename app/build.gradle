@@ -42,6 +42,9 @@ dependencies {
     implementation libs.constraintlayout
     implementation libs.navigation.fragment
     implementation libs.navigation.ui
+    implementation libs.activity
+    implementation libs.firebase.auth
+    implementation libs.firebase.database
     testImplementation libs.junit
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation libs.ext.junit
@@ -60,5 +63,7 @@ dependencies {
     //Junit Test
     testImplementation 'junit:junit:4.13.2'
 
-
+    //View model and Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 }
