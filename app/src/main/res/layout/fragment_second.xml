@@ -204,7 +204,6 @@
             app:layout_constraintStart_toEndOf="@id/championName"/>
 
         <LinearLayout
-            android:id="@+id/row1"
             android:layout_width="419dp"
             android:layout_height="180dp"
             android:layout_marginTop="10dp"
@@ -284,7 +283,6 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/championNaaame"
@@ -296,7 +294,6 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/championNaaame"
@@ -427,7 +424,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/maxDamage"
+                        android:id="@+id/maxDamage2"
                         android:layout_width="120dp"
                         android:layout_height="25dp"
                         android:layout_marginStart="18dp"
@@ -439,27 +436,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/pyhsicalText"
+                        android:id="@+id/pyhsicalText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rawText"
+                        android:layout_below="@+id/rawText2"
                         android:layout_marginTop="0dp"
                         android:text="Physical:"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/magicalText"
+                        android:id="@+id/magicalText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rawText"
+                        android:layout_below="@+id/rawText2"
                         android:layout_marginTop="21dp"
                         android:text="Magical:"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawText"
+                        android:id="@+id/rawText2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
@@ -469,11 +466,11 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue"
+                        android:id="@+id/rawValue2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
-                        android:layout_alignEnd="@+id/rawText"
+                        android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="-93dp"
                         android:text="1200 "
@@ -481,11 +478,11 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue"
+                        android:id="@+id/pysicalValue2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
-                        android:layout_alignEnd="@+id/rawText"
+                        android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="23dp"
                         android:layout_marginEnd="-92dp"
                         android:text="800 "
@@ -493,11 +490,11 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue"
+                        android:id="@+id/magicalValue2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
-                        android:layout_alignEnd="@+id/rawText"
+                        android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="47dp"
                         android:layout_marginEnd="-91dp"
                         android:text="300 "
@@ -510,7 +507,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/row2"
             android:layout_width="0dp"
             android:layout_height="360dp"
             android:layout_marginTop="10dp"
@@ -567,7 +563,8 @@
                             android:layout_marginTop="40dp"/>
 
                         <ImageView
-                            android:id="@+id/itemImage3"                            android:layout_width="120dp"
+                            android:layout_width="120dp"
+                            android:id="@+id/itemImage3"
                             android:layout_height="120dp"
                             android:src="@drawable/annie"
                             android:layout_marginTop="40dp"/>
@@ -591,7 +588,6 @@
                             android:id="@+id/itemImage5"
                             android:layout_width="wrap_content"
                             android:layout_height="120dp"
-                            android:layout_marginTop="80dp"
                             android:layout_marginTop="100dp"
                             android:src="@drawable/annie" />
 
@@ -603,6 +599,7 @@
                             android:src="@drawable/annie" />
                     </LinearLayout>
                 </RelativeLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
