@@ -1,6 +1,5 @@
 package com.example.proj2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,18 +21,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+public class RegisterActivity extends AppCompatActivity {
 
-public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
+
     private EditText mEtEmail, mEtPwd;
+    private Button mBtnRegister;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
-
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_register);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("CS401_Project2");
@@ -42,48 +43,40 @@ public class LoginActivity extends AppCompatActivity {
         mEtPwd = findViewById(R.id.et_pwd);
 
 
-        Button btn_login = findViewById(R.id.btn_login);
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        mBtnRegister = findViewById(R.id.btn_register);
+        mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //login
-                String strEmial = mEtEmail.getText().toString();
+                String strEmail = mEtEmail.getText().toString();
                 String strPwd = mEtPwd.getText().toString();
 
-                mFirebaseAuth.signInWithEmailAndPassword(strEmial, strPwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                //Firebase Auth
+                mFirebaseAuth.createUserWithEmailAndPassword(strEmail,strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //login successful
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class); //m0ve to MainActivity
-                            startActivity(intent);
-                            finish();//current activity destroy
+                            FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
+                            UserAccount account = new UserAccount();
+                            account.setIdToken(firebaseUser.getUid());
+                            account.setEmailId(firebaseUser.getEmail());
+                            account.setPassword(strPwd);
+
+                            //setValue : insert at database
+                            mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
+
+                            Toast.makeText(RegisterActivity.this,"Sign up successful",Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(LoginActivity.this, "Login faild",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this,"Sign up faild",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
 
-
-
-
-        Button btn_register = findViewById(R.id.btn_register);
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //move to register page
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        /*
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });*/
+        });
     }
 }
