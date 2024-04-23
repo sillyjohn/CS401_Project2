@@ -63,5 +63,7 @@ dependencies {
     //Junit Test
     testImplementation 'junit:junit:4.13.2'
 
-
+    //View model and Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 }

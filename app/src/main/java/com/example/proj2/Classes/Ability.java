@@ -1,6 +1,22 @@
 package com.example.proj2.Classes;
 
 public class Ability {
+    //Eability
+    //
+    //Qability
+    //
+    //Rability
+    //
+    //Wability
+    //Fields:
+    //Name
+    //damage:number
+    //ratioAP
+    //ratioAD
+    //isDamage
+    //isSummon
+    //instances
+    //duration
 
     String name;
     String spellnames;
@@ -14,8 +30,8 @@ public class Ability {
     int stages;
 
     //ratio
-    double[] coefficentAD;
-    double[] coefficentAP;
+    double[] ratioAD;
+    double[] ratioAP;
     double[] coefficentArmor;
     double[] coefficentMR;
     double[] coefficentHP;
