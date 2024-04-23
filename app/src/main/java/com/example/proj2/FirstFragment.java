@@ -61,7 +61,7 @@ public class FirstFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_FirstFragment_to_SecondFragment, result);
             }
         });
-        view.findViewById(R.id.MasterYiButton3).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.NasusButton3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Passing Name to Second Frag
