@@ -1,7 +1,17 @@
 package com.example.proj2.Classes;
 
+import java.util.ArrayList;
+
 public class Champion {
-    //Ability[] abilities;
+    public ArrayList<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(ArrayList<Ability> abilities) {
+        this.abilities = abilities;
+    }
+
+    ArrayList<Ability> abilities;
     int id;
     public String name;
     //Stats

@@ -10,9 +10,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import android.content.Context;
+import android.util.Log;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class ChampionViewModel extends ViewModel {
     private MutableLiveData<Champion> championData = new MutableLiveData<>();
@@ -21,7 +29,40 @@ public class ChampionViewModel extends ViewModel {
     public LiveData<Champion> getChampion() {
         return championData;
     }
+    public void fetchChampionAbility(String championName,Champion champ){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+            DocumentReference docRef = db.collection("championAbility")
+                    .document(championName).collection("Eability").document("data");
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete( Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            Log.d("Print", "DocumentSnapshot data: " + document.getData());
+                            try{
+                                Ability qAbili = document.toObject(Ability.class);
+                                ArrayList<Ability> abilities = new ArrayList<Ability>();
+                                abilities.add(qAbili);
+                                champ.setAbilities(abilities);
+                                Log.d("Q abi",qAbili.getName());
+                            }catch(Exception e){
+                                Log.d("Failed","went wrong");
+                            }
+
+                        } else {
+                            Log.d("Print", "No such document");
+                        }
+                    } else {
+                        Log.d("Print", "get failed with ", task.getException());
+                    }
+                }
+            });
+
+
+
+    }
     public void fetchChampionData(Context context, String championName) {
         if (queue == null) {
             queue = Volley.newRequestQueue(context);
@@ -51,6 +92,7 @@ public class ChampionViewModel extends ViewModel {
                                 rootNode.path(pathName).path("attackSpeedRatio").asDouble(),
                                 rootNode.path(pathName).path("attackSpeedPerLevel").asDouble()
                         );
+                        fetchChampionAbility(urlInsert,champ);
                         championData.postValue(champ);
                     } catch (Exception e) {
                         e.printStackTrace();
