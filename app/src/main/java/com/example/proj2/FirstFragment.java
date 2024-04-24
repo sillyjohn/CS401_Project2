@@ -66,7 +66,7 @@ public class FirstFragment extends Fragment {
             public void onClick(View view) {
                 //Passing Name to Second Frag
                 Bundle result = new Bundle();
-                result.putString("Name","Master Yi");
+                result.putString("Name","Nasus");
                 setArguments(result);
                 //Navigation
                 Navigation.findNavController(view).navigate(R.id.action_FirstFragment_to_SecondFragment, result);
