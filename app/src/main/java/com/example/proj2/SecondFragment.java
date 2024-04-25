@@ -133,9 +133,17 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        // Get the passed image resource id
+        int imageResourceId = getArguments().getInt("imageResourceId", -1);
+
+        // Set the image
+        if (imageResourceId != -1) {
+            ImageView imageView = view.findViewById(R.id.itemImage1);
+            imageView.setImageResource(imageResourceId);
+        }
+
 
     }
-
 
     @Override
     public void onDestroyView() {
