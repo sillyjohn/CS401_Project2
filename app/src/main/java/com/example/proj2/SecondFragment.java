@@ -1,10 +1,12 @@
 package com.example.proj2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -118,12 +120,27 @@ public class SecondFragment extends Fragment {
         );
 
 
+        // Set the click listener for button15
+        Button button15 = view.findViewById(R.id.button15);
+        button15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                Intent intent = new Intent(getActivity(), Item_selection.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
     }
+
+
 
 }

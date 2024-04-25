@@ -519,10 +519,9 @@
             app:layout_constraintVertical_bias="1.0">
 
 
-
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="303dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="20dp"
@@ -530,78 +529,87 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="ITEMS"
-                        android:textColor="@color/black"
-                        android:textSize="16sp" />
-
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/itemImage1"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="40dp"
-                            android:src="@drawable/annie" />
-
-                        <ImageView
-                            android:id="@+id/itemImage2"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:src="@drawable/annie"
-                            android:layout_marginTop="40dp"/>
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:id="@+id/itemImage3"
-                            android:layout_height="120dp"
-                            android:src="@drawable/annie"
-                            android:layout_marginTop="40dp"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/currentItemsBottom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp">
-
-                        <ImageView
-                            android:id="@+id/itemImage4"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="100dp"
-                            android:src="@drawable/annie"
-                            />
-
-                        <ImageView
-                            android:id="@+id/itemImage5"
+                        <Button
+                            android:id="@+id/button15"
                             android:layout_width="wrap_content"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="100dp"
-                            android:src="@drawable/annie" />
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="add tems" />
 
-                        <ImageView
-                            android:id="@+id/itemImage6"
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="100dp"
-                            android:src="@drawable/annie" />
-                    </LinearLayout>
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="ITEMS"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/itemImage1"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/annie" />
+
+                            <ImageView
+                                android:id="@+id/itemImage2"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/annie" />
+
+                            <ImageView
+                                android:id="@+id/itemImage3"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="40dp"
+                                android:src="@drawable/annie" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/currentItemsBottom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp">
+
+                            <ImageView
+                                android:id="@+id/itemImage4"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="100dp"
+                                android:src="@drawable/annie" />
+
+                            <ImageView
+                                android:id="@+id/itemImage5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="100dp"
+                                android:src="@drawable/annie" />
+
+                            <ImageView
+                                android:id="@+id/itemImage6"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="100dp"
+                                android:src="@drawable/annie" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
 
