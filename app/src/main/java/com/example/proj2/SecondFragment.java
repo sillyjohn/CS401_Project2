@@ -73,7 +73,10 @@ public class SecondFragment extends Fragment {
                 TextView championWabDisplay = binding.abilityW;
                 TextView championEabDisplay = binding.abilityE;
                 TextView championRabDisplay = binding.abilityR;
-
+                ImageView icon = binding.champIcon;
+                String imageName = champion.getName().replaceAll("\\s", "").toLowerCase();
+                int resourceId = getResources().getIdentifier(imageName, "drawable", getContext().getPackageName());
+                icon.setImageResource(resourceId);
                 championNameDisplay.setText(champion.getName());
                 championHPDisplay.setText(String.valueOf(champion.getBaseHP()));
                 championManaDisplay.setText(String.valueOf(champion.getBaseHP()));
@@ -90,16 +93,7 @@ public class SecondFragment extends Fragment {
                 }else if (champion != null && champion.getAbilities().size() == 0){
                     Log.d("Champion ab",String.valueOf(champion.getAbilities().size()));
                 }
-//                while(true){
-//                    if (champion != null && champion.getAbilities().size() >= 4) { // Check that all abilities are loaded
-//                        // Now it's safe to access the abilities by index
-//                        championQabDisplay.setText(champion.getAbilities().get(0).getName());
-//                        championWabDisplay.setText(champion.getAbilities().get(1).getName());
-//                        championEabDisplay.setText(champion.getAbilities().get(2).getName());
-//                        championRabDisplay.setText(champion.getAbilities().get(3).getName());
-//                        break;
-//                    }
-//                }
+
 
                 // Update other views based on champion data
             }else{
@@ -113,6 +107,14 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ViewModel viewModel = new ViewModelProvider(this).get(ChampionViewModel.class);
+        ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
+            if (champion != null) {
+                champion.returnCombineDamage();
+            }else{
+                Log.d("Failed","failed");
+            }
+        });
 
         binding.clothingCard.setOnClickListener(v ->
                 NavHostFragment.findNavController(SecondFragment.this)

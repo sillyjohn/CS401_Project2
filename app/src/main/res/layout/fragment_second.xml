@@ -23,7 +23,7 @@
             android:text="Champion Name"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
             android:text="HP:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -48,7 +48,7 @@
             android:text="2000"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -62,7 +62,7 @@
             android:text="AD:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -76,7 +76,7 @@
             android:text="80"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -90,7 +90,7 @@
             android:text="AP:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -104,7 +104,7 @@
             android:text="0"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -118,7 +118,7 @@
             android:text="59"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -132,7 +132,7 @@
             android:text="Magic Resist:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -146,7 +146,7 @@
             android:text="ARMOR:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -160,7 +160,7 @@
             android:text="70"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -174,7 +174,7 @@
             android:text="MANA:"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -188,7 +188,7 @@
             android:text="500"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/amazonImage"
+            app:layout_constraintEnd_toStartOf="@+id/champIcon"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/championName" />
@@ -196,7 +196,7 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="160dp"
-            android:id="@+id/amazonImage"
+            android:id="@+id/champIcon"
             android:src="@drawable/annie"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -212,7 +212,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amazonImage">
+            app:layout_constraintTop_toBottomOf="@id/champIcon">
 
 
 
@@ -331,7 +331,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amazonImage">
+            app:layout_constraintTop_toBottomOf="@id/champIcon">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/clothingCard"
@@ -461,7 +461,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
                         android:layout_marginTop="-2dp"
-                        android:text="RAW: "
+                        android:text="Combine: "
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 

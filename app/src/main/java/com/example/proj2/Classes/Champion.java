@@ -1,5 +1,7 @@
 package com.example.proj2.Classes;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Champion {
@@ -15,7 +17,7 @@ public class Champion {
     int id;
     public String name;
     //Stats
-    int level = 0;
+    int level = 18;
     double baseDamage;
     double damagePerLevel;
     double ap;
@@ -85,10 +87,6 @@ public class Champion {
 //        return ;
 //    }
     //Setter
-//    public void setAbilities(Ability[] abilities) {
-//        this.abilities = abilities;
-//    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -98,7 +96,9 @@ public class Champion {
     }
 
     public void setLevel(int level) {
-        this.level = level;
+        if(level <=18 && level >= 0){
+            this.level = level;
+        }
     }
 
     public void setBaseDamage(double baseDamage) {
@@ -222,6 +222,14 @@ public class Champion {
         return attackSpeedPerLevel;
     }
 
+    public double returnCombineDamage(){
+        double qDamage = abilities.get(0).returnDamage(this);
+        double wDamage = abilities.get(1).returnDamage(this);
+        double eDamage = abilities.get(2).returnDamage(this);
+        double rDamage = abilities.get(3).returnDamage(this);
+        Log.d("Combine Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
+        return getBaseDamage()+ getDamagePerLevel()* getLevel() + qDamage + wDamage + eDamage+ rDamage;
+    }
 
 
 

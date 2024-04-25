@@ -1,13 +1,23 @@
 package com.example.proj2.Classes;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Ability {
     String Name;
     int damageType;
 
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
     int rank = 5;
-    ArrayList<Double> damage;
+    ArrayList<Double> damage = null;
     //Bools
     boolean isDamage;
     boolean isSummon;
@@ -18,18 +28,18 @@ public class Ability {
     boolean isDOT;
     double duration;
     double perSecond;
-    ArrayList<Double> dotDamage;
-    ArrayList<Double> dotRatio;
-    ArrayList<Double> summonAA;
-    ArrayList<Double> summonRatioAD;
-    ArrayList<Double> summonRatioAP;
+    ArrayList<Double> dotDamage = null;
+    ArrayList<Double> dotRatio = null;
+    ArrayList<Double> summonAA = null;
+    ArrayList<Double> summonRatioAD = null;
+    ArrayList<Double> summonRatioAP = null;
 
     int instances;
 
     //ratio
-    ArrayList<Double> ratioBAD;
-    ArrayList<Double> ratioAD;
-    ArrayList<Double> ratioAP;
+    ArrayList<Double> ratioBAD = null;
+    ArrayList<Double> ratioAD = null;
+    ArrayList<Double> ratioAP = null;
     public Ability(){
         Name = "PlaceHolder";
         this.damageType = 0;
@@ -249,7 +259,61 @@ public class Ability {
         this.ratioAP = ratioAP;
     }
 
-    public void setRankToThree(){
-        rank = 3;
+    public double returnDamage(Champion champ){
+        Log.d("Working on Abi", Name);
+        Log.d("Working on Abi", String.valueOf(rank));
+        //check if this ab does dmg
+        if(isDamage == true){
+            return damage.get(rank-1)*instances
+                    + (ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage())
+                    + (ratioBAD == null ? 0.0 : ratioBAD.get(rank-1))
+                    + (ratioAP== null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+                    + returnDOT(champ)
+                    + returnSummonDamage(champ);
+        }
+        return 0;
+    }
+    public double returnADDamage(Champion champ){
+        //check if this ab does dmg
+        if(isDamage == true&&damageType==0){
+            return damage.get(rank-1)*instances +(ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+                    + returnDOT(champ)
+                    + returnSummonDamage(champ);        }
+        return 0;
+    }
+    public double returnAPDamage(Champion champ){
+        //check if this ab does dmg
+        if(isDamage == true&&damageType==1){
+            return damage.get(rank-1)*instances +(ratioAD.get(rank-1) == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+                    + returnDOT(champ)
+                    + returnSummonDamage(champ);        }
+        return 0;
+    }
+    public double returnTrueDamage(Champion champ){
+        //check if this ab does dmg
+        if(isDamage == true&&damageType==2){
+            return damage.get(rank-1)*instances +(ratioAD.get(rank-1) == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+                    + returnDOT(champ)
+                    + returnSummonDamage(champ);
+        }
+        return 0;
+    }
+    public double returnDOT(Champion champ){
+        if(isDOT == true){
+            return dotDamage.get(rank-1)*duration/perSecond;
+        }
+        return 0;
+    }
+    public double returnMaxHPDOT(Champion champ){
+        if(isMaxHP == true){
+            return dotDamage.get(rank-1)*duration/perSecond;
+        }
+        return 0;
+    }
+    public double returnSummonDamage(Champion champ){
+        if(isSummon == true){
+            return summonAA.get(rank-1);
+        }
+        return 0;
     }
 }
