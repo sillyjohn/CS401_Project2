@@ -41,7 +41,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityHPvalue"
+            android:id="@+id/champHP"
             android:layout_width="46dp"
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityADvalue"
+            android:id="@+id/champAD"
             android:layout_width="46dp"
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
@@ -96,7 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityAPvalue"
+            android:id="@+id/champAP"
             android:layout_width="46dp"
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityMagicResistvalue"
+            android:id="@+id/champMR"
             android:layout_width="46dp"
             android:layout_height="16dp"
             android:layout_marginStart="18dp"
@@ -138,7 +138,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityARMOR"
+            android:id="@+id/champArmor"
             android:layout_width="65dp"
             android:layout_height="20dp"
             android:layout_marginStart="18dp"
@@ -152,9 +152,9 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityARMORvalue"
-            android:layout_width="48dp"
-            android:layout_height="33dp"
+            android:id="@+id/champArmorValue"
+            android:layout_width="47dp"
+            android:layout_height="17dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="40dp"
             android:text="70"
@@ -180,7 +180,7 @@
             app:layout_constraintTop_toBottomOf="@id/championName" />
 
         <TextView
-            android:id="@+id/abilityMANAvalue"
+            android:id="@+id/champMana"
             android:layout_width="46dp"
             android:layout_height="20dp"
             android:layout_marginStart="18dp"

@@ -11,7 +11,7 @@ public class Champion {
         this.abilities = abilities;
     }
 
-    ArrayList<Ability> abilities;
+    public ArrayList<Ability> abilities = new ArrayList<>();
     int id;
     public String name;
     //Stats

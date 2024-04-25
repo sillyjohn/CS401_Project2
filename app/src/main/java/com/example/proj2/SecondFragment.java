@@ -61,17 +61,51 @@ public class SecondFragment extends Fragment {
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
             if (champion != null) {
                 TextView championNameDisplay = binding.championName;
+                TextView championHPDisplay = binding.champHP;
+                TextView championManaDisplay = binding.champMana;
+                TextView championArmorDisplay = binding.champArmorValue;
+                TextView championMRDisplay = binding.champMR;
+                TextView championADDisplay = binding.champAD;
+                TextView championAPDisplay = binding.champAP;
+                TextView championQabDisplay = binding.abilityQ;
+                TextView championWabDisplay = binding.abilityW;
+                TextView championEabDisplay = binding.abilityE;
+                TextView championRabDisplay = binding.abilityR;
+
                 championNameDisplay.setText(champion.getName());
+                championHPDisplay.setText(String.valueOf(champion.getBaseHP()));
+                championManaDisplay.setText(String.valueOf(champion.getBaseHP()));
+                championArmorDisplay.setText(String.valueOf(champion.getBaseArmor()));
+                championMRDisplay.setText(String.valueOf(champion.getBaseSpellBlock()));
+                championADDisplay.setText(String.valueOf(champion.getBaseDamage()));
+                championAPDisplay.setText(String.valueOf(champion.getAp()));
+                if (champion != null && champion.getAbilities().size() >= 4) { // Check that all abilities are loaded
+                        // Now it's safe to access the abilities by index
+                        championQabDisplay.setText(champion.getAbilities().get(0).getName());
+                        championWabDisplay.setText(champion.getAbilities().get(1).getName());
+                        championEabDisplay.setText(champion.getAbilities().get(2).getName());
+                        championRabDisplay.setText(champion.getAbilities().get(3).getName());
+                }else if (champion != null && champion.getAbilities().size() == 0){
+                    Log.d("Champion ab",String.valueOf(champion.getAbilities().size()));
+                }
+//                while(true){
+//                    if (champion != null && champion.getAbilities().size() >= 4) { // Check that all abilities are loaded
+//                        // Now it's safe to access the abilities by index
+//                        championQabDisplay.setText(champion.getAbilities().get(0).getName());
+//                        championWabDisplay.setText(champion.getAbilities().get(1).getName());
+//                        championEabDisplay.setText(champion.getAbilities().get(2).getName());
+//                        championRabDisplay.setText(champion.getAbilities().get(3).getName());
+//                        break;
+//                    }
+//                }
+
                 // Update other views based on champion data
             }else{
                 Log.d("Failed","failed");
             }
         });
 
-
-
         return binding.getRoot();
-
     }
 
 

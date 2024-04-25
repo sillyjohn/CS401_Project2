@@ -3,7 +3,7 @@ package com.example.proj2.Classes;
 import java.util.ArrayList;
 
 public class Ability {
-    String name;
+    String Name;
     int damageType;
 
     int rank = 5;
@@ -30,6 +30,54 @@ public class Ability {
     ArrayList<Double> ratioBAD;
     ArrayList<Double> ratioAD;
     ArrayList<Double> ratioAP;
+    public Ability(){
+        Name = "PlaceHolder";
+        this.damageType = 0;
+        this.rank = 5;
+        this.damage = damage;
+        this.isDamage = isDamage;
+        this.isSummon = isSummon;
+        this.isStack = isStack;
+        this.isCritiable = isCritiable;
+        this.isMaxHP = isMaxHP;
+        this.isMaxHPDOT = isMaxHPDOT;
+        this.isDOT = isDOT;
+        this.duration = duration;
+        this.perSecond = perSecond;
+        this.dotDamage = dotDamage;
+        this.dotRatio = dotRatio;
+        this.summonAA = summonAA;
+        this.summonRatioAD = summonRatioAD;
+        this.summonRatioAP = summonRatioAP;
+        this.instances = instances;
+        this.ratioBAD = ratioBAD;
+        this.ratioAD = ratioAD;
+        this.ratioAP = ratioAP;
+    }
+    public Ability(String name, int damageType, int rank, ArrayList<Double> damage, boolean isDamage, boolean isSummon, boolean isStack, boolean isCritiable, boolean isMaxHP, boolean isMaxHPDOT, boolean isDOT, double duration, double perSecond, ArrayList<Double> dotDamage, ArrayList<Double> dotRatio, ArrayList<Double> summonAA, ArrayList<Double> summonRatioAD, ArrayList<Double> summonRatioAP, int instances, ArrayList<Double> ratioBAD, ArrayList<Double> ratioAD, ArrayList<Double> ratioAP) {
+        Name = name;
+        this.damageType = damageType;
+        this.rank = rank;
+        this.damage = damage;
+        this.isDamage = isDamage;
+        this.isSummon = isSummon;
+        this.isStack = isStack;
+        this.isCritiable = isCritiable;
+        this.isMaxHP = isMaxHP;
+        this.isMaxHPDOT = isMaxHPDOT;
+        this.isDOT = isDOT;
+        this.duration = duration;
+        this.perSecond = perSecond;
+        this.dotDamage = dotDamage;
+        this.dotRatio = dotRatio;
+        this.summonAA = summonAA;
+        this.summonRatioAD = summonRatioAD;
+        this.summonRatioAP = summonRatioAP;
+        this.instances = instances;
+        this.ratioBAD = ratioBAD;
+        this.ratioAD = ratioAD;
+        this.ratioAP = ratioAP;
+    }
 
     public ArrayList<Double> getDamage() {
         return damage;
@@ -41,11 +89,11 @@ public class Ability {
 
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.Name = name;
     }
 
     public int getDamageType() {
@@ -57,12 +105,12 @@ public class Ability {
     }
 
 
-    public boolean isDamage() {
+    public boolean getisDamage() {
         return isDamage;
     }
 
-    public void setDamage(boolean damage) {
-        isDamage = damage;
+    public void setisDamage(boolean bool) {
+        isDamage = bool;
     }
 
     public boolean isSummon() {
