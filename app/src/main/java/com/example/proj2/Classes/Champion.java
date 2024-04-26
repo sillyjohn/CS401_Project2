@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+/**
+ *  Represents a Champion in the game or application.
+ */
 public class Champion {
     public ArrayList<Ability> getAbilities() {
         return abilities;

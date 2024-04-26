@@ -24,7 +24,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * ViewModel class for managing Champion data and fetching abilities from Firestore and API.
+ */
 public class ChampionViewModel extends ViewModel {
+    // MutableLiveData for holding Champion data
     private MutableLiveData<Champion> championData = new MutableLiveData<>();
     private RequestQueue queue;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();

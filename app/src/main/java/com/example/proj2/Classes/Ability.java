@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+/**
+ * Represents an ability in the game or application.
+ */
 public class Ability {
     String Name;
     int damageType;
