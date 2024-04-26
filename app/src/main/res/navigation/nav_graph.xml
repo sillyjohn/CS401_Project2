@@ -34,4 +34,9 @@
     <argument
         android:name="championName"
         app:argType="string" />
+    <activity
+        android:id="@+id/itemSelectionActivity"
+        android:name="com.example.proj2.ItemSelectionActivity"
+        android:label="activity_item_selection"
+        tools:layout="@layout/activity_item_selection" />
 </navigation>

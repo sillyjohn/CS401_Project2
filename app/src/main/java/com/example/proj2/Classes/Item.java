@@ -2,6 +2,16 @@ package com.example.proj2.Classes;
 
 public class Item {
     String Name;
+
+    public String getPngName() {
+        return pngName;
+    }
+
+    public void setPngName(String pngName) {
+        this.pngName = pngName;
+    }
+
+    String pngName;
     double AD = 0;
     double AP = 0;
     double HP = 0;

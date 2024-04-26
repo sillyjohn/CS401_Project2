@@ -66,7 +66,7 @@ public class ChampionViewModel extends ViewModel {
                         final int[] abilitiesFetchedCount = {0};
 
                         for (qwer abilitySlot : qwer.values()) {
-                            Log.d("Now Fetching",abilitySlot.toString());
+                            //.d("Now Fetching",abilitySlot.toString());
                             String collectionPath = abilitySlot.toString();
                             DocumentReference docRef = db.collection("championAbility")
                                     .document(championName.replaceAll("\\s", "").toLowerCase()).collection(collectionPath).document("data");
@@ -77,7 +77,7 @@ public class ChampionViewModel extends ViewModel {
                                     Ability ability = task.getResult().toObject(Ability.class);
 
                                     if (ability != null) {
-                                        Log.d("Ability added", "Name: " + ability.getName());
+                                        //Log.d("Ability added", "Name: " + ability.getName());
                                         abilities.add(ability);
                                     }
                                 } else {
@@ -85,7 +85,7 @@ public class ChampionViewModel extends ViewModel {
                                 }
 
                                 if (abilitiesFetchedCount[0] == qwer.values().length) {
-                                    Log.d("Ability post", "Posted");
+                                    //Log.d("Ability post", "Posted");
                                     champ.setAbilities(abilities);
                                     championData.postValue(champ);
                                 }

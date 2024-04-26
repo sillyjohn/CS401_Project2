@@ -527,86 +527,116 @@
                 app:cardCornerRadius="20dp"
                 app:cardElevation="20dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <RelativeLayout
+
+                    <Button
+                        android:id="@+id/button15"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:text="add tems"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="16dp" />
 
-                        <Button
-                            android:id="@+id/button15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="add tems" />
+                    <TextView
+                        android:id="@+id/ItemSlots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ITEMS"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.056" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:text="ITEMS"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
+                    <ImageButton
+                        android:id="@+id/item2"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toTopOf="@+id/item5"
+                        app:layout_constraintEnd_toStartOf="@+id/item3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.988"
+                        app:srcCompat="@drawable/additem" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                    <ImageButton
+                        android:id="@+id/item3"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toTopOf="@+id/item6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.988"
+                        app:srcCompat="@drawable/additem" />
 
-                            <ImageView
-                                android:id="@+id/itemImage1"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="40dp"
-                                android:src="@drawable/annie" />
+                    <ImageButton
+                        android:id="@+id/item4"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="24dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/item5"
+                        app:layout_constraintHorizontal_bias="0.676"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/additem" />
 
-                            <ImageView
-                                android:id="@+id/itemImage2"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="40dp"
-                                android:src="@drawable/annie" />
+                    <ImageButton
+                        android:id="@+id/item5"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="24dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/item6"
+                        app:srcCompat="@drawable/additem" />
 
-                            <ImageView
-                                android:id="@+id/itemImage3"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="40dp"
-                                android:src="@drawable/annie" />
+                    <ImageButton
+                        android:id="@+id/item6"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginEnd="28dp"
+                        android:layout_marginBottom="24dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:srcCompat="@drawable/additem" />
 
-                        </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/item1"
+                        android:layout_width="93dp"
+                        android:layout_height="87dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toTopOf="@+id/item4"
+                        app:layout_constraintEnd_toStartOf="@+id/item2"
+                        app:layout_constraintHorizontal_bias="0.541"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.988"
+                        app:srcCompat="@drawable/additem" />
 
-                        <LinearLayout
-                            android:id="@+id/currentItemsBottom"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="40dp">
 
-                            <ImageView
-                                android:id="@+id/itemImage4"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="100dp"
-                                android:src="@drawable/annie" />
-
-                            <ImageView
-                                android:id="@+id/itemImage5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="100dp"
-                                android:src="@drawable/annie" />
-
-                            <ImageView
-                                android:id="@+id/itemImage6"
-                                android:layout_width="120dp"
-                                android:layout_height="120dp"
-                                android:layout_marginTop="100dp"
-                                android:src="@drawable/annie" />
-                        </LinearLayout>
-                    </RelativeLayout>
-
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 

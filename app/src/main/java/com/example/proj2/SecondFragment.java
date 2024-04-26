@@ -1,5 +1,6 @@
 package com.example.proj2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,42 +8,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.proj2.Classes.Champion;
 import com.example.proj2.Classes.ChampionViewModel;
-import com.example.proj2.databinding.FragmentSecondBinding;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import androidx.lifecycle.ViewModelProvider;
-
-import org.json.JSONObject;
-
-import java.math.BigDecimal;
+import com.example.proj2.Classes.Item;
+import com.example.proj2.Classes.ItemViewModel;
+import com.example.proj2.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
-    private Champion currChamp;
-    private String ChampionName;
-    private RequestQueue queue;
+    private static final int ITEM_REQUEST = 1;
+
 
     @Override
     public View onCreateView(
@@ -51,8 +38,17 @@ public class SecondFragment extends Fragment {
     ) {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
+
         //ViewModel
         ViewModel viewModel = new ViewModelProvider(this).get(ChampionViewModel.class);
+        ViewModel itemViewModel = new ViewModelProvider(this).get(ItemViewModel.class);
+
+        ImageButton item1button = binding.item1;
+//        ImageButton item2button = view.findViewById(R.id.item2);
+//        ImageButton item3 = view.findViewById(R.id.item3);
+//        ImageButton item4 = view.findViewById(R.id.item4);
+//        ImageButton item5 = view.findViewById(R.id.item5);
+//        ImageButton item6 = view.findViewById(R.id.item6);
         //Bundle
         Bundle result = getArguments();
         //Fetch to viewmodel
@@ -64,6 +60,7 @@ public class SecondFragment extends Fragment {
         }
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
             if (champion != null) {
+                //Find TV
                 TextView championNameDisplay = binding.championName;
                 TextView championHPDisplay = binding.champHP;
                 TextView championManaDisplay = binding.champMana;
@@ -75,10 +72,14 @@ public class SecondFragment extends Fragment {
                 TextView championWabDisplay = binding.abilityW;
                 TextView championEabDisplay = binding.abilityE;
                 TextView championRabDisplay = binding.abilityR;
+                //Find ImageBTN
                 ImageView icon = binding.champIcon;
+                //Modify path name
                 String imageName = champion.getName().replaceAll("\\s", "").toLowerCase();
                 int resourceId = getResources().getIdentifier(imageName, "drawable", getContext().getPackageName());
+                //Set ImageView
                 icon.setImageResource(resourceId);
+                //Set TVs
                 championNameDisplay.setText(champion.getName());
                 championHPDisplay.setText(String.valueOf(champion.getBaseHP()));
                 championManaDisplay.setText(String.valueOf(champion.getBaseHP()));
@@ -95,13 +96,12 @@ public class SecondFragment extends Fragment {
                 }else if (champion != null && champion.getAbilities().size() == 0){
                     Log.d("Champion ab",String.valueOf(champion.getAbilities().size()));
                 }
-
-
-                // Update other views based on champion data
             }else{
                 Log.d("Failed","failed");
             }
         });
+
+
 
         return binding.getRoot();
     }
@@ -109,7 +109,20 @@ public class SecondFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //ViewModels
         ViewModel viewModel = new ViewModelProvider(this).get(ChampionViewModel.class);
+        ViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+
+        // Set the click listener for items
+        Button button15 = view.findViewById(R.id.button15);
+        ImageButton item1button = view.findViewById(R.id.item1);
+        ImageButton item2button = view.findViewById(R.id.item2);
+        ImageButton item3 = view.findViewById(R.id.item3);
+        ImageButton item4 = view.findViewById(R.id.item4);
+        ImageButton item5 = view.findViewById(R.id.item5);
+        ImageButton item6 = view.findViewById(R.id.item6);
+
+        //Get data from viewmodels
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
             if (champion != null) {
                 String formattedValue = String.format("%.1f", champion.returnCombineDamage());
@@ -118,12 +131,12 @@ public class SecondFragment extends Fragment {
                 //ad
                 TextView physicalDMG = binding.physicalDamageDisplay;
                 formattedValue = String.format("%.1f", champion.returnADDamage());
-                Log.d("ad",String.valueOf(champion.returnADDamage()));
+                //Log.d("ad",String.valueOf(champion.returnADDamage()));
                 physicalDMG.setText(formattedValue);
                 //ap
                 TextView magicalDmG = binding.magicalDamageDisplay;
                 formattedValue = String.format("%.1f", champion.returnAPDamage());
-                Log.d("ap",String.valueOf(champion.returnAPDamage()));
+                //Log.d("ap",String.valueOf(champion.returnAPDamage()));
                 magicalDmG.setText(formattedValue);
             }else{
                 Log.d("Failed","failed");
@@ -136,27 +149,59 @@ public class SecondFragment extends Fragment {
         );
 
 
-        // Set the click listener for button15
-        Button button15 = view.findViewById(R.id.button15);
-        button15.setOnClickListener(new View.OnClickListener() {
+        item1button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Perform the action to navigate to the item_selection page
-                Intent intent = new Intent(getActivity(), Item_selection.class);
+                Intent intent = new Intent(getActivity(), ItemSelectionActivity.class);
                 startActivity(intent);
+                updateItem(v);
             }
         });
 
-        // Get the passed image resource id
-        int imageResourceId = getArguments().getInt("imageResourceId", -1);
 
-        // Set the image
-        if (imageResourceId != -1) {
-            ImageView imageView = view.findViewById(R.id.itemImage1);
-            imageView.setImageResource(imageResourceId);
-        }
+        //Update the item image
+        ((ItemViewModel) itemViewModel).getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+            Log.d("Change item image",item.getPngName());
+            if (item != null) {
+                Log.d("Change item image",item.getPngName());
+                // Update the ImageButton with the new image
+                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
+                item1button.setImageResource(resourceId);
+                // Optionally, update the TextView or other UI elements with details
+            } else {
+                Log.d("Change item image","failed");
+                // Handle case where no item is selected (default state)
+                binding.item1.setImageResource(R.drawable.additem);
+            }
+        });
 
 
+
+    }
+    public void updateItem(View view){
+        Button button15 = view.findViewById(R.id.button15);
+        ImageButton item1button = view.findViewById(R.id.item1);
+        ImageButton item2button = view.findViewById(R.id.item2);
+        ImageButton item3 = view.findViewById(R.id.item3);
+        ImageButton item4 = view.findViewById(R.id.item4);
+        ImageButton item5 = view.findViewById(R.id.item5);
+        ImageButton item6 = view.findViewById(R.id.item6);
+        ViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+        ((ItemViewModel) itemViewModel).getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+            Log.d("Change item image",item.getPngName());
+            if (item != null) {
+                Log.d("Change item image",item.getPngName());
+                // Update the ImageButton with the new image
+                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
+                item1button.setImageResource(resourceId);
+                // Optionally, update the TextView or other UI elements with details
+            } else {
+                Log.d("Change item image","failed");
+                // Handle case where no item is selected (default state)
+                binding.item1.setImageResource(R.drawable.additem);
+            }
+        });
     }
 
     @Override
