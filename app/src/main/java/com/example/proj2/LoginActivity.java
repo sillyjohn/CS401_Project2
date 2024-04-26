@@ -67,8 +67,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-
         Button btn_register = findViewById(R.id.btn_register);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,11 +77,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });*/
     }
 }

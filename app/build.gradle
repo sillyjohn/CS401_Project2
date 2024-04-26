@@ -45,6 +45,15 @@ dependencies {
     implementation libs.activity
     implementation libs.firebase.auth
     implementation libs.firebase.database
+    implementation libs.fragment.testing
+    implementation libs.core
+    implementation libs.androidx.espresso.core
+    implementation libs.androidx.runner
+    implementation libs.androidx.junit
+    implementation libs.mockito
+    implementation libs.android.all
+    implementation libs.robolectric
+    implementation libs.robolectric.robolectric
     testImplementation libs.junit
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     androidTestImplementation libs.ext.junit
@@ -66,4 +75,6 @@ dependencies {
     //View model and Lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
+    testImplementation 'org.robolectric:robolectric:4.12.1'
 }
