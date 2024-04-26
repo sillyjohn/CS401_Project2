@@ -360,7 +360,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Dance Of Arrow"
+                        android:text="Loading"
                         android:layout_below="@+id/currentItemTitletext"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -370,7 +370,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Dance Of Arrow"
+                        android:text="Loading"
                         android:layout_below="@+id/abilityQ"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -380,7 +380,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Dance Of Arrow"
+                        android:text="Loading"
                         android:layout_below="@+id/abilityW"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -390,7 +390,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:text="Dance Of Arrow"
+                        android:text="Loading"
                         android:layout_below="@+id/abilityE"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -466,38 +466,38 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/rawValue2"
+                        android:id="@+id/combineDamageDisplay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
                         android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="0dp"
                         android:layout_marginEnd="-93dp"
-                        android:text="1200 "
+                        android:text="Loading"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/pysicalValue2"
+                        android:id="@+id/physicalDamageDisplay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
                         android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="23dp"
                         android:layout_marginEnd="-92dp"
-                        android:text="800 "
+                        android:text="Loading"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/magicalValue2"
+                        android:id="@+id/magicalDamageDisplay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/maxDamageTitle"
                         android:layout_alignEnd="@+id/rawText2"
                         android:layout_marginTop="47dp"
                         android:layout_marginEnd="-91dp"
-                        android:text="300 "
+                        android:text="Loading"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 

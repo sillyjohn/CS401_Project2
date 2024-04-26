@@ -274,25 +274,42 @@ public class Ability {
         return 0;
     }
     public double returnADDamage(Champion champ){
+        Log.d("Working on Abi", Name);
+        Log.d("Working on Abi", String.valueOf(rank));
         //check if this ab does dmg
         if(isDamage == true&&damageType==0){
-            return damage.get(rank-1)*instances +(ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+            return damage.get(rank-1)*instances
+                    + (ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage())
+                    + (ratioBAD == null ? 0.0 : ratioBAD.get(rank-1))
+                    + (ratioAP== null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
                     + returnDOT(champ)
-                    + returnSummonDamage(champ);        }
+                    + returnSummonDamage(champ);
+        }
         return 0;
     }
     public double returnAPDamage(Champion champ){
+        Log.d("Working on Abi", Name);
+        Log.d("Working on Abi", String.valueOf(rank));
         //check if this ab does dmg
         if(isDamage == true&&damageType==1){
-            return damage.get(rank-1)*instances +(ratioAD.get(rank-1) == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+            return damage.get(rank-1)*instances
+                    + (ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage())
+                    + (ratioBAD == null ? 0.0 : ratioBAD.get(rank-1))
+                    + (ratioAP== null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
                     + returnDOT(champ)
-                    + returnSummonDamage(champ);        }
+                    + returnSummonDamage(champ);
+        }
         return 0;
     }
     public double returnTrueDamage(Champion champ){
+        Log.d("Working on Abi", Name);
+        Log.d("Working on Abi", String.valueOf(rank));
         //check if this ab does dmg
         if(isDamage == true&&damageType==2){
-            return damage.get(rank-1)*instances +(ratioAD.get(rank-1) == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage()) + (ratioBAD.get(rank-1) == null ? 0.0 : ratioBAD.get(rank-1)) + (ratioAP.get(rank-1) == null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
+            return damage.get(rank-1)*instances
+                    + (ratioAD == null ? 0.0 : ratioAD.get(rank-1)*champ.getBaseDamage())
+                    + (ratioBAD == null ? 0.0 : ratioBAD.get(rank-1))
+                    + (ratioAP== null ? 0.0 : ratioAP.get(rank-1)* champ.getAp())
                     + returnDOT(champ)
                     + returnSummonDamage(champ);
         }
