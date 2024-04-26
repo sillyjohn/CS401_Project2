@@ -33,70 +33,6 @@ public class ChampionViewModel extends ViewModel {
     public LiveData<Champion> getChampion() {
         return championData;
     }
-    public void fetchChampionAbility(String championName, Champion champ){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-        for(int i =0; i<4;i++){
-            String abilitySlot = "";
-            switch (i){
-                case 0:
-                    abilitySlot = "Qability";
-                    break;
-                case 1:
-                    abilitySlot = "Wability";
-                    break;
-                case 2:
-                    abilitySlot = "Eability";
-                    break;
-                case 3:
-                    abilitySlot = "Rability";
-                    break;
-                default:
-                    break;
-            }
-
-            //Getting data from database
-            DocumentReference docRef = db.collection("championAbility")
-                    .document(championName).collection(abilitySlot).document("data");
-
-            // Asynchronously retrieve the document
-            docRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        // Log the document snapshot data
-                        Log.d("Print", "DocumentSnapshot data: " + document.getData());
-
-                        // Convert the document snapshot to Ability object
-                        Ability ability = document.toObject(Ability.class);
-
-                        if (ability != null) {
-                            // Since we only fetched Qability, let's add it to a new list of abilities
-                            ArrayList<Ability> abilities = new ArrayList<>();
-                            abilities.add(ability);
-
-                            // Set the abilities in the Champion object
-                            champ.setAbilities(abilities);
-
-                            // For debugging, log the name of the ability and the damage array
-                            Log.d("Ability", "Name: " + ability.getName());
-                            Log.d("Ability", "Damage: " + ability.getDamage().toString());
-                        } else {
-                            Log.d("Firestore Conversion", "Failed to convert document to Ability object.");
-                        }
-                    } else {
-                        Log.d("Firestore Fetch", "No such document");
-                    }
-                } else {
-                    Log.d("Firestore Fetch", "get failed with ", task.getException());
-                }
-            });
-        }
-
-    }
-    public void fetchChampionAbilities(String championName, Champion champ) {
-
-    }
     public void fetchChampionData(Context context, String championName) {
         if (queue == null) {
             queue = Volley.newRequestQueue(context);
@@ -130,6 +66,7 @@ public class ChampionViewModel extends ViewModel {
                         final int[] abilitiesFetchedCount = {0};
 
                         for (qwer abilitySlot : qwer.values()) {
+                            Log.d("Now Fetching",abilitySlot.toString());
                             String collectionPath = abilitySlot.toString();
                             DocumentReference docRef = db.collection("championAbility")
                                     .document(championName.replaceAll("\\s", "").toLowerCase()).collection(collectionPath).document("data");
@@ -138,6 +75,7 @@ public class ChampionViewModel extends ViewModel {
                                 abilitiesFetchedCount[0]++;
                                 if (task.isSuccessful() && task.getResult().exists()) {
                                     Ability ability = task.getResult().toObject(Ability.class);
+
                                     if (ability != null) {
                                         Log.d("Ability added", "Name: " + ability.getName());
                                         abilities.add(ability);

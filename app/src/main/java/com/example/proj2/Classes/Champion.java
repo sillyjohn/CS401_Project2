@@ -21,14 +21,14 @@ public class Champion {
     double baseDamage;
     double damagePerLevel;
     double ap;
-    double critChance;
-    double critDamage;
-    double lifeSteal;
-    double omniVamp;
-    double armorPen;
-    double magicPen;
-    double lethality;
-    double magicFlatPen;
+    double critChance = 0;
+    double critDamage = 0.75;
+    double lifeSteal = 0;
+    double omniVamp = 0;
+    double armorPen = 0;
+    double magicPen = 0;
+    double lethality = 0;
+    double magicFlatPen = 0;
     double baseHP;
     double hpPerLevel;
     double baseArmor;
@@ -57,6 +57,15 @@ public class Champion {
         this.attackSpeed = 0;
         this.attackSpeedRatio = 0;
         this.attackSpeedPerLevel = 0;
+        this.critChance = 0;
+        this.critDamage = 0.75;
+        this.lifeSteal = 0;
+        this.omniVamp = 0;
+        this.armorPen = 0;
+        this.magicFlatPen = 0;
+        this.magicPen = 0;
+        this.lethality = 0;
+
     }
     //Constructor
     public Champion(String name,
@@ -227,8 +236,32 @@ public class Champion {
         double wDamage = abilities.get(1).returnDamage(this);
         double eDamage = abilities.get(2).returnDamage(this);
         double rDamage = abilities.get(3).returnDamage(this);
-        Log.d("Combine Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
+        //Log.d("Combine Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
         return getBaseDamage()+ getDamagePerLevel()* getLevel() + qDamage + wDamage + eDamage+ rDamage;
+    }
+    public double returnADDamage(){
+        double qDamage = abilities.get(0).returnADDamage(this);
+        double wDamage = abilities.get(1).returnADDamage(this);
+        double eDamage = abilities.get(2).returnADDamage(this);
+        double rDamage = abilities.get(3).returnADDamage(this);
+        //Log.d("AD Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
+        return getBaseDamage()+ getDamagePerLevel()* getLevel() + qDamage + wDamage + eDamage+ rDamage;
+    }
+    public double returnAPDamage(){
+        double qDamage = abilities.get(0).returnAPDamage(this);
+        double wDamage = abilities.get(1).returnAPDamage(this);
+        double eDamage = abilities.get(2).returnAPDamage(this);
+        double rDamage = abilities.get(3).returnAPDamage(this);
+        //Log.d("AP Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
+        return  qDamage + wDamage + eDamage+ rDamage;
+    }
+    public double returnTrueDamage(){
+        double qDamage = abilities.get(0).returnAPDamage(this);
+        double wDamage = abilities.get(1).returnAPDamage(this);
+        double eDamage = abilities.get(2).returnAPDamage(this);
+        double rDamage = abilities.get(3).returnAPDamage(this);
+        //Log.d("TRUE Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
+        return qDamage + wDamage + eDamage+ rDamage;
     }
 
 

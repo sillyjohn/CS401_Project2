@@ -35,6 +35,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
@@ -110,7 +112,19 @@ public class SecondFragment extends Fragment {
         ViewModel viewModel = new ViewModelProvider(this).get(ChampionViewModel.class);
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
             if (champion != null) {
-                champion.returnCombineDamage();
+                String formattedValue = String.format("%.1f", champion.returnCombineDamage());
+                TextView combineDMG = binding.combineDamageDisplay;
+                combineDMG.setText(formattedValue);
+                //ad
+                TextView physicalDMG = binding.physicalDamageDisplay;
+                formattedValue = String.format("%.1f", champion.returnADDamage());
+                Log.d("ad",String.valueOf(champion.returnADDamage()));
+                physicalDMG.setText(formattedValue);
+                //ap
+                TextView magicalDmG = binding.magicalDamageDisplay;
+                formattedValue = String.format("%.1f", champion.returnAPDamage());
+                Log.d("ap",String.valueOf(champion.returnAPDamage()));
+                magicalDmG.setText(formattedValue);
             }else{
                 Log.d("Failed","failed");
             }
