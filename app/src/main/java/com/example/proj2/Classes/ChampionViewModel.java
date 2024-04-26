@@ -37,6 +37,12 @@ public class ChampionViewModel extends ViewModel {
     public LiveData<Champion> getChampion() {
         return championData;
     }
+
+    /**
+     *
+     * @param context
+     * @param championName
+     */
     public void fetchChampionData(Context context, String championName) {
         if (queue == null) {
             queue = Volley.newRequestQueue(context);

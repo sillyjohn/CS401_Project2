@@ -25,6 +25,9 @@ import com.example.proj2.Classes.Item;
 import com.example.proj2.Classes.ItemViewModel;
 import com.example.proj2.databinding.FragmentSecondBinding;
 
+/**
+ * Defining the SecondFragment class that extends Fragment
+ */
 public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;

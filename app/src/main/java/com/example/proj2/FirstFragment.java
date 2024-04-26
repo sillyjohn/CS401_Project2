@@ -12,7 +12,9 @@ import androidx.navigation.Navigation;
 import com.example.proj2.databinding.FragmentFirstBinding;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-// Defining the FirstFragment class that extends Fragment
+/**
+ * Defining the FirstFragment class that extends Fragment
+ */
 public class FirstFragment extends Fragment {
     private static final String TAG = FirstFragment.class.getSimpleName(); // TAG for logging
 
@@ -28,7 +30,12 @@ public class FirstFragment extends Fragment {
         return binding.getRoot();
     }
 
-    // Method called after the view has been created
+    /**
+     *
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -47,8 +54,9 @@ public class FirstFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_FirstFragment_to_SecondFragment, result);
             }
         });
-
-        // Similar click listeners for other champion buttons
+/**
+ * Similar click listeners for other champion buttons
+ */
         // Garen
         view.findViewById(R.id.GarenButton2).setOnClickListener(new View.OnClickListener() {
             @Override

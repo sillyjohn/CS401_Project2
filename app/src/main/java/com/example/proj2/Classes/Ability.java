@@ -43,6 +43,7 @@ public class Ability {
     ArrayList<Double> ratioBAD = null;
     ArrayList<Double> ratioAD = null;
     ArrayList<Double> ratioAP = null;
+
     public Ability(){
         Name = "PlaceHolder";
         this.damageType = 0;
@@ -262,6 +263,11 @@ public class Ability {
         this.ratioAP = ratioAP;
     }
 
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnDamage(Champion champ){
         Log.d("Working on Abi", Name);
         Log.d("Working on Abi", String.valueOf(rank));
@@ -276,6 +282,12 @@ public class Ability {
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnADDamage(Champion champ){
         Log.d("Working on Abi", Name);
         Log.d("Working on Abi", String.valueOf(rank));
@@ -290,6 +302,12 @@ public class Ability {
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnAPDamage(Champion champ){
         Log.d("Working on Abi", Name);
         Log.d("Working on Abi", String.valueOf(rank));
@@ -304,6 +322,12 @@ public class Ability {
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnTrueDamage(Champion champ){
         Log.d("Working on Abi", Name);
         Log.d("Working on Abi", String.valueOf(rank));
@@ -318,18 +342,36 @@ public class Ability {
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnDOT(Champion champ){
         if(isDOT == true){
             return dotDamage.get(rank-1)*duration/perSecond;
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnMaxHPDOT(Champion champ){
         if(isMaxHP == true){
             return dotDamage.get(rank-1)*duration/perSecond;
         }
         return 0;
     }
+
+    /**
+     *
+     * @param champ
+     * @return
+     */
     public double returnSummonDamage(Champion champ){
         if(isSummon == true){
             return summonAA.get(rank-1);

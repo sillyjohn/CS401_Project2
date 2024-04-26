@@ -234,6 +234,10 @@ public class Champion {
         return attackSpeedPerLevel;
     }
 
+    /**
+     * returnCombineDamage
+     * @return
+     */
     public double returnCombineDamage(){
         double qDamage = abilities.get(0).returnDamage(this);
         double wDamage = abilities.get(1).returnDamage(this);
@@ -242,6 +246,11 @@ public class Champion {
         //Log.d("Combine Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
         return getBaseDamage()+ getDamagePerLevel()* getLevel() + qDamage + wDamage + eDamage+ rDamage;
     }
+
+    /**
+     * returnADDamage
+     * @return
+     */
     public double returnADDamage(){
         double qDamage = abilities.get(0).returnADDamage(this);
         double wDamage = abilities.get(1).returnADDamage(this);
@@ -258,6 +267,11 @@ public class Champion {
         //Log.d("AP Dmg" ,String.valueOf(getBaseDamage() + qDamage + wDamage + eDamage+ rDamage));
         return  qDamage + wDamage + eDamage+ rDamage;
     }
+
+    /**
+     * returnTrueDamage
+     * @return
+     */
     public double returnTrueDamage(){
         double qDamage = abilities.get(0).returnAPDamage(this);
         double wDamage = abilities.get(1).returnAPDamage(this);

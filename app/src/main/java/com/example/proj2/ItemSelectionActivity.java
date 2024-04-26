@@ -21,7 +21,9 @@ import com.example.proj2.Classes.ItemViewModel;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-// Defining the ItemSelectionActivity class that extends AppCompatActivity
+/**
+ * Defining the ItemSelectionActivity class that extends AppCompatActivity
+ */
 public class ItemSelectionActivity extends AppCompatActivity {
 
     // Initialize Firestore database reference

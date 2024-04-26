@@ -1,5 +1,8 @@
 package com.example.proj2; // Package declaration indicating the location of the class
 
+/**
+ * UserAccount Class
+ */
 public class UserAccount {
     private String emailId; // Private field to store the user's email ID
     private String password; // Private field to store the user's password
