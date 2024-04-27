@@ -33,7 +33,16 @@ public class SecondFragment extends Fragment {
     private FragmentSecondBinding binding;
     private static final int ITEM_REQUEST = 1;
 
-
+    /**
+     * Inflates the layout of the fragment and sets up the ViewModel to fetch and display champion data.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     * @return The root view of the inflated layout.
+     */
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -109,7 +118,13 @@ public class SecondFragment extends Fragment {
         return binding.getRoot();
     }
 
-
+    /**
+     * Sets up the UI elements and listeners after the view has been created.
+     *
+     * @param view               The root view of the fragment's layout.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     */
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //ViewModels
@@ -231,6 +246,12 @@ public class SecondFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * Updates the selected item's image displayed on the UI.
+     *
+     * @param view The root view of the fragment's layout.
+     */
     public void updateItem(View view){
         Button button15 = view.findViewById(R.id.button15);
         ImageButton item1button = view.findViewById(R.id.item1);
@@ -256,6 +277,9 @@ public class SecondFragment extends Fragment {
         });
     }
 
+    /**
+     * Cleans up any resources when the fragment's view is destroyed.
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
