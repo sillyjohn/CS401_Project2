@@ -22,7 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
- * RegisterActivity extends
+ * RegisterActivity provides a screen for users to register within the app.
+ * Users can sign up by entering their email and password.
  */
 public class RegisterActivity extends AppCompatActivity {
 
@@ -32,7 +33,12 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mEtEmail, mEtPwd;
     private Button mBtnRegister;
 
-
+    /**
+     * Method called when the activity is first created.
+     * Sets up the layout and initializes necessary objects.
+     *
+     * @param savedInstanceState Bundle containing the previous state's data
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
