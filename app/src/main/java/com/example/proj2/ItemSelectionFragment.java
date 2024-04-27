@@ -24,13 +24,31 @@ import com.example.proj2.Classes.ItemViewModel;
 import com.example.proj2.databinding.FragmentItemSelectionBinding;
 import com.example.proj2.databinding.FragmentSecondBinding;
 
+/**
+ * Fragment allowing users to select items.
+ */
 public class ItemSelectionFragment extends Fragment {
     private FragmentItemSelectionBinding binding;
 
+    /**
+     * Creates a new instance of the ItemSelectionFragment.
+     *
+     * @return A new instance of ItemSelectionFragment.
+     */
     public static ItemSelectionFragment newInstance() {
         return new ItemSelectionFragment();
     }
 
+    /**
+     * Inflates the layout of the fragment and initializes the ViewModel for handling item data.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment.
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     * @return The root view of the inflated layout.
+     */
     @Override
     public View onCreateView( @NonNull LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
@@ -60,6 +78,14 @@ public class ItemSelectionFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+    /**
+     * Sets up UI elements and click listeners for item selection.
+     *
+     * @param view               The root view of the fragment's layout.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     */
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d("item selection","fragment");
