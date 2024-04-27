@@ -53,29 +53,6 @@ public class ItemSelectionFragment extends Fragment {
     public View onCreateView( @NonNull LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
         binding = FragmentItemSelectionBinding.inflate(inflater, container, false);
-        //Log.d("item selection","fragment");
-        //ViewModels
-        // Use requireActivity() to ensure the ViewModel is scoped to the host activity
-        ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
-
-
-        // Set the click listener for items
-        Button item1button = binding.button1;
-//        ImageButton item2button = view.findViewById(R.id.button2);
-//        ImageButton item3button = view.findViewById(R.id.button3);
-//        ImageButton item4button = view.findViewById(R.id.button4);
-//        ImageButton item5button = view.findViewById(R.id.button5);
-//        ImageButton item6button = view.findViewById(R.id.button6);
-
-
-//        item1button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String itemName = "Doran's Blade";
-//                itemViewModel.fetchItemData(itemName);
-//            }
-//        });
-
         return binding.getRoot();
     }
 

@@ -1,6 +1,7 @@
 package com.example.proj2.Classes;
 
 import android.util.Log;
+import android.widget.ImageButton;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -9,13 +10,18 @@ import androidx.lifecycle.ViewModel;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * The ItemViewModel class is a ViewModel responsible for managing item data.
  * It provides methods to fetch item data from Firestore, select items.
  */
 public class ItemViewModel extends ViewModel {
     private MutableLiveData<Item> selectedItem = new MutableLiveData<>();
-    private MutableLiveData<String> itemName = new MutableLiveData<>();
+    private MutableLiveData<Integer> slot = new MutableLiveData<>();
+    private MutableLiveData<Map<Integer, Integer>> slotResourceMap = new MutableLiveData<>(new HashMap<>());
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     /**
@@ -55,20 +61,32 @@ public class ItemViewModel extends ViewModel {
     }
 
     /**
-     * Gets the LiveData object representing the item name.
+     * Gets the LiveData object representing the ImageButton.
      *
-     * @return The LiveData object representing the item name
+     * @return The LiveData object representing the ImageButton's ID
      */
-    public LiveData<String> getItemName() {
-        return itemName;
+    public LiveData<Integer> getSlot() {
+        return slot;
     }
 
     /**
      * Sets the item name.
      *
-     * @param info The name of the item to set
+     * @param btnID The ImageButton's ID to set
      */
-    public void setItemName(String info) {
-        itemName.setValue(info);
+    public void setSlot(int btnID) {
+        slot.postValue(btnID);
+    }
+    public void setItemImageResource(int slotId, int resourceId) {
+        Map<Integer, Integer> currentMap = slotResourceMap.getValue();
+        if (currentMap == null) {
+            currentMap = new HashMap<>();
+        }
+        currentMap.put(slotId, resourceId);
+        slotResourceMap.setValue(currentMap);
+    }
+
+    public LiveData<Map<Integer, Integer>> getSlotResourceMap() {
+        return slotResourceMap;
     }
 }
