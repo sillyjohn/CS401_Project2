@@ -128,10 +128,10 @@ public class SecondFragment extends Fragment {
         Button button15 = view.findViewById(R.id.button15);
         ImageButton item1button = view.findViewById(R.id.item1);
         ImageButton item2button = view.findViewById(R.id.item2);
-        ImageButton item3 = view.findViewById(R.id.item3);
-        ImageButton item4 = view.findViewById(R.id.item4);
-        ImageButton item5 = view.findViewById(R.id.item5);
-        ImageButton item6 = view.findViewById(R.id.item6);
+        ImageButton item3button = view.findViewById(R.id.item3);
+        ImageButton item4button = view.findViewById(R.id.item4);
+        ImageButton item5button = view.findViewById(R.id.item5);
+        ImageButton item6button = view.findViewById(R.id.item6);
 
         //Get data from viewmodels
         ((ChampionViewModel) viewModel).getChampion().observe(getViewLifecycleOwner(), champion -> {
@@ -161,6 +161,67 @@ public class SecondFragment extends Fragment {
 
 
         item1button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+
+        item1button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+        item2button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+        item3button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+        item4button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+        item5button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform the action to navigate to the item_selection page
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
+            }
+        });
+
+        item6button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Perform the action to navigate to the item_selection page
