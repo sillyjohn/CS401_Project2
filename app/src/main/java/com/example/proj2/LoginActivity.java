@@ -29,7 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
-    private EditText mEtEmail, mEtPwd;
+    public EditText mEtEmail;
+    public EditText mEtPwd;
 
 
     /**
