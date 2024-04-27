@@ -45,6 +45,7 @@ dependencies {
     implementation libs.activity
     implementation libs.firebase.auth
     implementation libs.firebase.database
+    implementation libs.legacy.support.v4
 //    implementation libs.fragment.testing
 //    implementation libs.core
 //    implementation libs.androidx.espresso.core
