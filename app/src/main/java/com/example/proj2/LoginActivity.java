@@ -23,13 +23,23 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 /**
- * Extended LoginActivity Class
+ * LoginActivity handles user authentication.
+ * Users can log in using their email and password, or navigate to the registration page.
  */
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private DatabaseReference mDatabaseRef;
     private EditText mEtEmail, mEtPwd;
 
+
+    /**
+     * Called when the activity is starting.
+     * Responsible for initializing the activity, including UI elements and Firebase components.
+     *
+     * @param savedInstanceState If the activity is being re-initialized after previously being shut down,
+     *                           then this Bundle contains the data it most recently supplied in
+     *                           onSaveInstanceState(Bundle). Otherwise, it is null.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

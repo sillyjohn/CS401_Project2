@@ -14,11 +14,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * Defining the FirstFragment class that extends Fragment
+ *  allowing users to select different champions.
  */
 public class FirstFragment extends Fragment {
     private static final String TAG = FirstFragment.class.getSimpleName(); // TAG for logging
 
     private FragmentFirstBinding binding; // Binding object for the fragment's layout
+
 
     @Override
     public View onCreateView(
