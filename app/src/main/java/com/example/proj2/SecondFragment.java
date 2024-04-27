@@ -114,8 +114,16 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //ViewModels
         ViewModel viewModel = new ViewModelProvider(this).get(ChampionViewModel.class);
-        ViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+        // Use requireActivity() to ensure the ViewModel is scoped to the host activity
+        ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
 
+        itemViewModel.getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+            if (item != null) {
+                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
+//                int buttonId = getResources().getIdentifier()
+                binding.item1.setImageResource(resourceId);
+            }
+        });
         // Set the click listener for items
         Button button15 = view.findViewById(R.id.button15);
         ImageButton item1button = view.findViewById(R.id.item1);
@@ -156,31 +164,11 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Perform the action to navigate to the item_selection page
-                Intent intent = new Intent(getActivity(), ItemSelectionActivity.class);
-                startActivity(intent);
-                updateItem(v);
+                NavHostFragment.findNavController(SecondFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
+
             }
         });
-
-
-        //Update the item image
-        ((ItemViewModel) itemViewModel).getSelectedItem().observe(getViewLifecycleOwner(), item -> {
-            Log.d("Change item image",item.getPngName());
-            if (item != null) {
-                Log.d("Change item image",item.getPngName());
-                // Update the ImageButton with the new image
-                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
-                item1button.setImageResource(resourceId);
-                // Optionally, update the TextView or other UI elements with details
-            } else {
-                Log.d("Change item image","failed");
-                // Handle case where no item is selected (default state)
-                binding.item1.setImageResource(R.drawable.additem);
-            }
-        });
-
-
-
     }
     public void updateItem(View view){
         Button button15 = view.findViewById(R.id.button15);

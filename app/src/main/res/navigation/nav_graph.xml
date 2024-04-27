@@ -25,18 +25,28 @@
         android:name="com.example.proj2.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
-
+        <action
+            android:id="@+id/action_SecondFragment_to_ItemSelectionFragment"
+            app:destination="@id/ItemSelectionFragment"
+            app:popUpTo="@id/SecondFragment" />
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment"
-            app:popUpTo="@id/SecondFragment" />
+            app:destination="@id/FirstFragment" />
     </fragment>
     <argument
         android:name="championName"
         app:argType="string" />
-    <activity
-        android:id="@+id/itemSelectionActivity"
-        android:name="com.example.proj2.ItemSelectionActivity"
-        android:label="activity_item_selection"
-        tools:layout="@layout/activity_item_selection" />
+    <fragment
+        android:id="@+id/ItemSelectionFragment"
+        android:name="com.example.proj2.ItemSelectionFragment"
+        android:label="@string/ItemSelection_label"
+        tools:layout="@layout/fragment_item_selection">
+
+        <action
+            android:id="@+id/action_ItemSelectionFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"
+            app:popUpTo="@id/SecondFragment"
+            app:popUpToInclusive="false" />
+
+    </fragment>
 </navigation>
