@@ -68,6 +68,32 @@ public class Ability {
         this.ratioAD = ratioAD;
         this.ratioAP = ratioAP;
     }
+
+    /**
+     * Constructor for the Ability class with parameters.
+     * @param name Name of the ability.
+     * @param damageType Type of damage (0: Attack Damage, 1: Ability Power, 2: True Damage).
+     * @param rank Rank of the ability.
+     * @param damage Damage values of the ability.
+     * @param isDamage Boolean indicating if the ability deals damage.
+     * @param isSummon Boolean indicating if the ability summons.
+     * @param isStack Boolean indicating if the ability stacks.
+     * @param isCritiable Boolean indicating if the ability is critiable.
+     * @param isMaxHP Boolean indicating if the ability is based on max HP.
+     * @param isMaxHPDOT Boolean indicating if the ability deals max HP based damage over time.
+     * @param isDOT Boolean indicating if the ability deals damage over time.
+     * @param duration Duration of the ability effect.
+     * @param perSecond Damage per second of the ability.
+     * @param dotDamage Damage values of the damage over time effect.
+     * @param dotRatio Ratios of the damage over time effect.
+     * @param summonAA Summon attack damage values.
+     * @param summonRatioAD Summon ability power ratios.
+     * @param summonRatioAP Summon ability power ratios.
+     * @param instances Number of instances of the ability.
+     * @param ratioBAD Ratios of the ability.
+     * @param ratioAD Ratios of the ability.
+     * @param ratioAP Ratios of the ability.
+     */
     public Ability(String name, int damageType, int rank, ArrayList<Double> damage, boolean isDamage, boolean isSummon, boolean isStack, boolean isCritiable, boolean isMaxHP, boolean isMaxHPDOT, boolean isDOT, double duration, double perSecond, ArrayList<Double> dotDamage, ArrayList<Double> dotRatio, ArrayList<Double> summonAA, ArrayList<Double> summonRatioAD, ArrayList<Double> summonRatioAP, int instances, ArrayList<Double> ratioBAD, ArrayList<Double> ratioAD, ArrayList<Double> ratioAP) {
         Name = name;
         this.damageType = damageType;

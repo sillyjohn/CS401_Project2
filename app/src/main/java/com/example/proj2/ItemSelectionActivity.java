@@ -29,6 +29,12 @@ public class ItemSelectionActivity extends AppCompatActivity {
     // Initialize Firestore database reference
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    /**
+     * Sets up the layout and initializes the ViewModel for handling item data.
+     *
+     * @param savedInstanceState If non-null, this activity is being re-constructed from a previous saved state
+     *                           as given here.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

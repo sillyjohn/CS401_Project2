@@ -25,6 +25,8 @@ import com.example.proj2.Classes.Item;
 import com.example.proj2.Classes.ItemViewModel;
 import com.example.proj2.databinding.FragmentSecondBinding;
 
+import java.util.Map;
+
 /**
  * Defining the SecondFragment class that extends Fragment
  */
@@ -33,7 +35,16 @@ public class SecondFragment extends Fragment {
     private FragmentSecondBinding binding;
     private static final int ITEM_REQUEST = 1;
 
-
+    /**
+     * Inflates the layout of the fragment and sets up the ViewModel to fetch and display champion data.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     * @return The root view of the inflated layout.
+     */
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -109,7 +120,13 @@ public class SecondFragment extends Fragment {
         return binding.getRoot();
     }
 
-
+    /**
+     * Sets up the UI elements and listeners after the view has been created.
+     *
+     * @param view               The root view of the fragment's layout.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     *                           as given here.
+     */
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //ViewModels
@@ -117,13 +134,7 @@ public class SecondFragment extends Fragment {
         // Use requireActivity() to ensure the ViewModel is scoped to the host activity
         ItemViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
 
-        itemViewModel.getSelectedItem().observe(getViewLifecycleOwner(), item -> {
-            if (item != null) {
-                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
-//                int buttonId = getResources().getIdentifier()
-                binding.item1.setImageResource(resourceId);
-            }
-        });
+
         // Set the click listener for items
         Button button15 = view.findViewById(R.id.button15);
         ImageButton item1button = view.findViewById(R.id.item1);
@@ -163,28 +174,17 @@ public class SecondFragment extends Fragment {
         item1button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                itemViewModel.setSlot(R.id.item1);
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
-
-            }
-        });
-
-
-        item1button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
-
             }
         });
 
         item2button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                int intID = R.id.item2;
+                itemViewModel.setSlot(intID);
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
 
@@ -194,7 +194,8 @@ public class SecondFragment extends Fragment {
         item3button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                int intID = R.id.item3;
+                itemViewModel.setSlot(intID);
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
 
@@ -204,17 +205,18 @@ public class SecondFragment extends Fragment {
         item4button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                int intID = R.id.item4;
+                itemViewModel.setSlot(intID);
                 NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
-
+                        .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);;
             }
         });
 
         item5button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                int intID = R.id.item5;
+                itemViewModel.setSlot(intID);
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
 
@@ -224,38 +226,69 @@ public class SecondFragment extends Fragment {
         item6button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Perform the action to navigate to the item_selection page
+                int intID = R.id.item6;
+                itemViewModel.setSlot(intID);
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_ItemSelectionFragment);
 
             }
         });
-    }
-    public void updateItem(View view){
-        Button button15 = view.findViewById(R.id.button15);
-        ImageButton item1button = view.findViewById(R.id.item1);
-        ImageButton item2button = view.findViewById(R.id.item2);
-        ImageButton item3 = view.findViewById(R.id.item3);
-        ImageButton item4 = view.findViewById(R.id.item4);
-        ImageButton item5 = view.findViewById(R.id.item5);
-        ImageButton item6 = view.findViewById(R.id.item6);
-        ViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
-        ((ItemViewModel) itemViewModel).getSelectedItem().observe(getViewLifecycleOwner(), item -> {
-            Log.d("Change item image",item.getPngName());
-            if (item != null) {
-                Log.d("Change item image",item.getPngName());
-                // Update the ImageButton with the new image
+        // Observe changes in selected item resource ID and update the ImageButton
+        itemViewModel.getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+            Integer buttonId = itemViewModel.getSlot().getValue();
+            if (item != null && buttonId != null) {
                 int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
-                item1button.setImageResource(resourceId);
-                // Optionally, update the TextView or other UI elements with details
-            } else {
-                Log.d("Change item image","failed");
-                // Handle case where no item is selected (default state)
-                binding.item1.setImageResource(R.drawable.additem);
+                ImageButton targetButton = binding.getRoot().findViewById(buttonId);
+                // Store the pair in map
+                itemViewModel.setItemImageResource(buttonId, resourceId);
+                //load all entries
+                itemViewModel.getSlotResourceMap().observe(getViewLifecycleOwner(), slotResourceMap -> {
+                    if (slotResourceMap != null) {
+                        for (Map.Entry<Integer, Integer> entry : slotResourceMap.entrySet()) {
+                            ImageButton button = binding.getRoot().findViewById(entry.getKey());
+                            if (button != null) {
+                                button.setImageResource(entry.getValue());
+                            }
+                        }
+                    }
+                });
+
             }
         });
+//        itemViewModel.getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+//            if (item != null) {
+//                itemViewModel.getSlot().observe(getViewLifecycleOwner(), slot -> {
+//                    if (slot != null) {
+//                        // Update the ImageButton with the new image
+//                        int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
+//
+//                        //setImageResource(resourceId);
+//                    }
+//                });
+//            }
+//        });
     }
+//    public void updateItem(ImageButton button){
+//        ViewModel itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
+//        ((ItemViewModel) itemViewModel).getSelectedItem().observe(getViewLifecycleOwner(), item -> {
+//            Log.d("Called image update method",item.getPngName());
+//            if (item != null) {
+//                Log.d("Change item image",item.getPngName());
+//                // Update the ImageButton with the new image
+//                int resourceId = getResources().getIdentifier(item.getPngName(), "drawable", getContext().getPackageName());
+//                button.setImageResource(resourceId);
+//                // Optionally, update the TextView or other UI elements with details
+//            } else {
+//                Log.d("Change item image","failed");
+//                // Handle case where no item is selected (default state)
+//                binding.item1.setImageResource(R.drawable.additem);
+//            }
+//        });
+//    }
 
+    /**
+     * Cleans up any resources when the fragment's view is destroyed.
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
